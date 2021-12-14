@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import icon from '../../assets/img/icon-128.png';
+import { convertPage } from '../../pages/Content/modules/convertPage';
 
 const Greetings = () => {
 
@@ -17,6 +18,7 @@ const Greetings = () => {
   const handleClick = async () => {
     const price = await getCurrentPrice('cad')
     setCurrentPrice(price)
+    console.log(price)
   }
 
   useEffect(() => {
@@ -32,6 +34,9 @@ const Greetings = () => {
     <>
       <button onClick={handleClick}>
         Hello
+      </button>
+      <button id='convertToBTC'>
+        convert page
       </button>
       <p>Bitcoin Price: {currentPrice}</p>
     </>
