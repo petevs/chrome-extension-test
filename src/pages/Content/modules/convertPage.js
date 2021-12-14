@@ -2,16 +2,16 @@ const toBTC = (num) => {
     return Math.round(num * 1000000) / 1000000
   }
   
-const convertToBTC = (num) => {
+const convertToBTC = (num, price) => {
 let value = Number(num.replace(/[^0-9.-]+/g,""))
-value = toBTC(value) / 64000
-return value + ' BTC'
+value = value / price
+return toBTC(value) + ' BTC'
 }
 
-export const convert = (event) => {
-const curr = event.target
-let theText = curr.innerText
-curr.innerText = convertToBTC(theText)
+export const convert = (event, price) => {
+  const curr = event.target
+  let theText = curr.innerText
+  curr.innerText = convertToBTC(theText, price)
 }
 
   

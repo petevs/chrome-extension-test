@@ -1,25 +1,35 @@
-import React from 'react';
+import { Button } from '@mui/material';
+import React, { useState, useEffect } from 'react';
 import logo from '../../assets/img/logo.svg';
+import CurrentPrice from './components/CurrentPrice';
 import './Newtab.css';
 import './Newtab.scss';
 
 const Newtab = () => {
+
+  const [price, setPrice] = useState(0)
+
+  useEffect(() => {
+
+
+    const baseURL = 'https://api.coingecko.com/api/v3/coins/bitcoin'
+
+    const getCurrentPrice = async (currency) => {
+      const response = await fetch(baseURL)
+      const { market_data } = await response.json()
+      const { current_price } = market_data
+      setPrice(current_price[currency])
+    }
+
+    getCurrentPrice('cad')
+    
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Calculating Bitcoin
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-        <h6>The color of this paragraph is defined using SASS.</h6>
+        <CurrentPrice price={price} />
+        <Button onClick={() => setPrice(65000)}>Update Price</Button>
       </header>
     </div>
   );
