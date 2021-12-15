@@ -1,11 +1,11 @@
 {
-  "name": "bitcoin-price-converter",
+  "name": "calculating-bitcoin-extension",
   "version": "0.1",
   "description": "Convert Prices to Bitcoin",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/petevs/chrome-extension-test.git"
+    "url": "https://github.com/petevs/calculating-bitcoin-extension.git"
   },
   "scripts": {
     "build": "node utils/build.js",

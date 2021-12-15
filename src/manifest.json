@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Convert to Bitcoin Chrome Extension",
+  "name": "Calculating Bitcoin Extension",
   "permissions": ["storage", "activeTab", "scripting"],
   "options_page": "options.html",
   "background": { "service_worker": "background.bundle.js" },
