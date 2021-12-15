@@ -39,6 +39,7 @@ document.addEventListener('keyup', event => {
 
 document.querySelector('body').addEventListener('click', (event) => {
   if(keyHeld === 'b'){
+    event.preventDefault()
     convert(event, currentPrice)
   }
 })
